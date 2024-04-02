@@ -1,5 +1,6 @@
 import express from 'express'      
 import web from './routes/web.js'
+import cors  from 'cors'
 const app = express();
 const port = process.env.PORT || '3000'
 import connectDB from './db/connectDatabase.js'
@@ -11,6 +12,9 @@ connectDB(DATABASE_URL)
 
 // JSON
 app.use(express.json())
+
+// configer CORS
+app.use(cors())
 
 // Load routes
 app.use("/todo",web)

@@ -31,7 +31,7 @@ class todoControllers {
         }
     }
     static UpdateTodoById =async (req, res) => {
-        try {
+        try {   
             const id = await req.params.id;
             const {task} = req.body;
             await todoModel.updateOne({"_id": id}, {$set: {"task": task}})
